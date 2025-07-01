@@ -1,0 +1,49 @@
+services:
+  frontend:
+    build: 
+      context: ./waec_ai_frontend
+      dockerfile: Dockerfile.dev
+    container_name: waec_ai_frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./waec_ai_frontend:/app
+      - /app/node_modules
+    # depends_on:
+    #   - backend
+    #   - mongodb
+    #   - mysql
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    
+  backend:
+    build:
+      context: ./waec_ai_backend
+    container_name: waec_ai_backend
+    ports:
+      - "8000:8000"
+    volumes: 
+      - ./waec_ai_backend:/app 
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongo_db
+    ports: 
+      - "27017:27017"
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql_db
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: my_db
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama_ai
+    ports:
+      - "11434:11434"
+
+  
