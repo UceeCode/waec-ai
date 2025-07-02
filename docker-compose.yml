@@ -30,6 +30,8 @@ services:
     container_name: mongo_db
     ports: 
       - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
 
   mysql:
     image: mysql:5.7
@@ -39,6 +41,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: pass
       MYSQL_DATABASE: my_db
+    volumes:
+      - mysql_data:/var/lib/mysql
 
   ollama:
     image: ollama/ollama
@@ -46,4 +50,6 @@ services:
     ports:
       - "11434:11434"
 
-  
+volumes:
+  mongo_data:
+  mysql_data:
