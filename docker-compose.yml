@@ -1,13 +1,13 @@
 services:
   frontend:
     build: 
-      context: ./waec_ai_frontend
+      context: ./frontend
       dockerfile: Dockerfile.dev
-    container_name: waec_ai_frontend
+    container_name: frontend
     ports:
       - "3000:3000"
     volumes:
-      - ./waec_ai_frontend:/app
+      - ./frontend:/app
       - /app/node_modules
     # depends_on:
     #   - backend
@@ -18,12 +18,12 @@ services:
     
   backend:
     build:
-      context: ./waec_ai_backend
-    container_name: waec_ai_backend
+      context: ./backend
+    container_name: backend
     ports:
       - "8000:8000"
     volumes: 
-      - ./waec_ai_backend:/app 
+      - ./backend:/app 
 
   mongodb:
     image: mongo:latest
