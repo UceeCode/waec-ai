@@ -49,6 +49,8 @@ services:
     container_name: ollama_ai
     ports:
       - "11434:11434"
+    volumes:
+      - ./data/ollama:/root/.ollama
 
 volumes:
   mongo_data:
