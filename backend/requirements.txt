@@ -1,5 +1,2 @@
-fastapi
-uvicorn
-pymongo
-mysql-connector-python
-python-dotenv
+dnspython==2.7.0
+pymongo==4.13.2
