@@ -24,6 +24,11 @@ services:
       - "8000:8000"
     volumes: 
       - ./backend:/app 
+      - ./data/backend-artefacts:/app/artefacts 
+    depends_on:
+      - mongodb
+      - mysql
+      - ollama 
 
   mongodb:
     image: mongo:latest
