@@ -8,9 +8,9 @@ logger = logging.getLogger(__name__)
 
 class WAECDatabase:
     
-    def __init__(self, mongo_uri=None, db_name=None):
-        self.mongo_uri = mongo_uri or os.getenv("MONGO_URI", "mongodb://localhost:27017")
-        self.db_name = db_name or os.getenv("MONGO_DB_NAME", "waec_questions_db")
+    def __init__(self, mongo_uri, db_name):
+        self.mongo_uri = os.getenv("MONGO_URI", "mongodb://localhost:27017")
+        self.db_name = os.getenv("MONGO_DB_NAME", "waec_questions_db")
         
         self.collections = {
             'raw_documents': 'raw_documents',
@@ -152,16 +152,14 @@ def setup_waec_database():
 
     if db_info:
         logger.info("Database setup completed successfully")
-        print("\n" + "=" * 50)
         print("DATABASE SETUP SUMMARY")
-        print("=" * 50)
         print(f"Database Name: {db_info['database_name']}")
         print(f"Status: {db_info['connection_status']}")
         print(f"Database Size: {db_info['database_size']} bytes")
         print("\nCollections Created:")
         for name, info in db_info['collections'].items():
             print(f"  - {name}: {info['document_count']} documents")
-        print("=" * 50)
+
 
     return db
 
