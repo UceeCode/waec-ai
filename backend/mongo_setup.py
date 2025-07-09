@@ -152,7 +152,6 @@ def setup_waec_database():
 
     if db_info:
         logger.info("Database setup completed successfully")
-        print("DATABASE SETUP SUMMARY")
         print(f"Database Name: {db_info['database_name']}")
         print(f"Status: {db_info['connection_status']}")
         print(f"Database Size: {db_info['database_size']} bytes")

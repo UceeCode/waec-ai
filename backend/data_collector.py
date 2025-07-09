@@ -40,11 +40,6 @@ class WAECDataCollector:
         self.metadata_collection = self.db.get_collection('metadata')
         
         self.waec_urls = [
-            "https://www.waec.org.ng/",
-            "https://www.waec.org.ng/examinations/",
-            "https://www.waec.org.ng/publications/",
-            "https://mywaec.net/",
-            "https://waecgh.org/",
             "https://www.waecnigeria.org/",
             "https://myschool.ng/",
             "https://www.pass.ng/"
