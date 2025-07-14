@@ -7,3 +7,7 @@ langchain-community
 langchain
 numpy
 fastapi
+beautifulsoup4
+pathlib
+pypdf
+cryptography>=40.0.0

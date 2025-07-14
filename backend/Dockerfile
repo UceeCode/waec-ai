@@ -7,6 +7,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+COPY run.sh .
+RUN chmod +x run.sh
+
 EXPOSE 8000
 
-CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+ENTRYPOINT ["/bin/bash", "/app/run.sh"]
