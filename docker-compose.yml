@@ -44,7 +44,6 @@ services:
       - mongo_data:/data/db
     networks:
       - waec_network
-  
   mongo-express:
     image: mongo-express:latest
     container_name: waec_mongo_express
