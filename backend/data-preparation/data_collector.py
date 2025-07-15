@@ -1,4 +1,4 @@
-import time
+import time 
 import os
 import requests
 from bs4 import BeautifulSoup
@@ -66,7 +66,9 @@ class WAECDataCollector:
             matches = re.findall(pattern, combined_name_lower)
             if matches:
                 for match in matches:
-                    year = int(match) if match.isdigit() else int(match)
+                    if isinstance(match, tuple):
+                        match = ''.join(match)
+                    year = int(match)
                     if 1990 <= year <= 2030:
                         return year
 
@@ -304,7 +306,7 @@ class WAECDataCollector:
                 document = self.fetch_web_content(url)
                 
                 if document:
-                    if self.insert_document(document, 'raw_document'):
+                    if self.insert_document(document, 'raw_documents'):
                         collected_web_data_count += 1
                         
                     self.extract_and_store_questions(document)
