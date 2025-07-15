@@ -1,7 +1,7 @@
 {
   "_id": "6872f7fa3b5cd0f9ccbdbc72",
   "content_hash": "fd69f7a862babd5362cdfb0d36289e9f",
-  "collected_at": "2025-07-13T00:04:10.789043",
+  "collected_at": "2025-07-15T21:30:36.924543",
   "content": "Physics video lessons for JAMB, WAEC, NECO and NABTEB candidates + SS1, SS2 and SS3 students \u20a6 2,000",
   "content_length": 100,
   "metadata": {
@@ -9,7 +9,7 @@
     "response_status": 200,
     "content_type": "text/html; charset=UTF-8"
   },
-  "raw_html_path": "data-preparation/raw_web_data/Myschoolng - Nigerian Students Education and Study_1752365050.html",
+  "raw_html_path": "data-preparation/raw_web_data/Myschoolng - Nigerian Students Education and Study_1752615036.html",
   "source": "https://myschool.ng/",
   "title": "Myschool.ng - Nigerian Students, Education and Studying in Nigeria - Myschool",
   "type": "web",
