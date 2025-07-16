@@ -1,0 +1,6 @@
+venv/
+backend/data-preparation/__pycache__/
+backend/data-preparation/logs/
+backend/data-preparation/processed_data/
+backend/data-preparation/raw_web_data/
+backend/data-preparation/pdf_documents/

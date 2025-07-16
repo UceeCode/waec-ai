@@ -1,5 +1,13 @@
-fastapi
+dnspython==2.7.0
+pymongo==4.13.2
 uvicorn
 pymongo
-mysql-connector-python
 python-dotenv
+langchain-community
+langchain
+numpy
+fastapi
+beautifulsoup4
+pathlib
+pypdf
+cryptography>=40.0.0
