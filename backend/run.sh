@@ -4,6 +4,8 @@ echo "Running WAEC Data Collection Pipeline..."
 
 python /app/data-preparation/run.py
 
+python /app/rag-pipeline/main.py
+
 if [ $? -ne 0 ]; then
     echo "WAEC Data Collection Pipeline failed! Exiting."
     exit 1

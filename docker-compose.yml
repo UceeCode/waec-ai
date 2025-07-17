@@ -28,6 +28,7 @@ services:
     environment:
       MONGO_URI: mongodb://mongodb:27017
       MONGO_DB_NAME: waec_questions_db
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
     depends_on:
       - mongodb
       - mysql
