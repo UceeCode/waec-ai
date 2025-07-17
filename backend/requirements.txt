@@ -5,10 +5,10 @@ python-dotenv
 langchain-community
 langchain
 numpy
+faiss-cpu==1.8.0
+sentence-transformers==2.7.0
 fastapi
 beautifulsoup4
 pypdf
 cryptography>=40.0.0
-# sentence-transformers==2.7.0
-# faiss-cpu==1.8.0
-# google-generativeai
+google-generativeai 
