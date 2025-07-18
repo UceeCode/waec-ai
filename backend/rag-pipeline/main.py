@@ -88,7 +88,7 @@ def main():
         print("AI: ", end='', flush=True)
         for chunk in llm_interactor.generate_response_streaming(cleaned_query, retrieved_questions):
             print(chunk, end='', flush=True)
-        print() # Newline at the end of AI response
+        print()
 
     vector_manager.close()
     logger.info("Pipeline finished.")
