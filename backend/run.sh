@@ -1,14 +1,13 @@
 #!/bin/bash
 
-echo "Running WAEC Data Collection Pipeline..."
+echo "Running WAEC Data Collection and Retrieval Pipeline..."
 
-python /app/data-preparation/run.py
+# python /app/data-preparation/run.py
 
-python /app/rag-pipeline/main.py
 
 if [ $? -ne 0 ]; then
     echo "WAEC Data Collection Pipeline failed! Exiting."
     exit 1
 fi
 
-exec uvicorn api:app --host 0.0.0.0 --port 8000 --reload
+exec uvicorn rag_pipeline.main:app --host 0.0.0.0 --port 8000
