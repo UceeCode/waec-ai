@@ -28,9 +28,11 @@ services:
     environment:
       MONGO_URI: mongodb://mongodb:27017
       MONGO_DB_NAME: waec_questions_db
+      OLLAMA_BASE_URL: http://ollama:11434
+      OLLAMA_MODEL: llama3.2:1b
     depends_on:
       - mongodb
-      - mysql
+      # - mysql
       - ollama 
     networks:
       - waec_network
@@ -54,23 +56,24 @@ services:
       ME_CONFIG_MONGODB_PORT: 27017
       ME_CONFIG_BASICAUTH_USERNAME: admin 
       ME_CONFIG_BASICAUTH_PASSWORD: pass
+      ME_CONFIG_MONGODB_URL: mongodb://mongodb:27017/ 
     depends_on:
       - mongodb
     networks:
       - waec_network
 
-  mysql:
-    image: mysql:5.7
-    container_name: mysql_db
-    ports:
-      - "3307:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: pass
-      MYSQL_DATABASE: my_db
-    volumes:
-      - mysql_data:/var/lib/mysql
-    networks:
-      - waec_network
+  # mysql:
+  #   image: mysql:5.7
+  #   container_name: mysql_db
+  #   ports:
+  #     - "3307:3306"
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: pass
+  #     MYSQL_DATABASE: my_db
+  #   volumes:
+  #     - mysql_data:/var/lib/mysql
+  #   networks:
+  #     - waec_network
 
   ollama:
     image: ollama/ollama
@@ -84,7 +87,7 @@ services:
 
 volumes:
   mongo_data:
-  mysql_data:
+  # mysql_data:
 
 networks:
   waec_network:

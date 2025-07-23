@@ -4,3 +4,6 @@ backend/data-preparation/logs/
 backend/data-preparation/processed_data/
 backend/data-preparation/raw_web_data/
 backend/data-preparation/pdf_documents/
+backend/rag_pipeline/.env
+backend/rag_pipeline/config.py
+backend/rag_pipeline/__pycache__/
