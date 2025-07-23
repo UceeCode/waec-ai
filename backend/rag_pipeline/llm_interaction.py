@@ -2,8 +2,7 @@ import os
 import logging
 from langchain_community.llms import Ollama 
 from langchain.prompts import PromptTemplate
-from langchain.schema import HumanMessage, AIMessage
-
+from langchain.schema import HumanMessage, AIMessage, AIMessageChunk
 logger = logging.getLogger(__name__)
 
 class LLMInteraction:
@@ -17,6 +16,7 @@ class LLMInteraction:
             model=ollama_model,
             temperature=0.7, 
             num_ctx=4096,
+            keep_alive="10m"
         )
 
         self.prompt_template = PromptTemplate.from_template(
@@ -48,9 +48,12 @@ class LLMInteraction:
 
         try:
 
-            response_generator = self.model.invoke(formatted_prompt) 
-
-            yield response_generator 
+            for chunk in self.model.stream(formatted_prompt):
+                
+                if isinstance(chunk, AIMessageChunk):
+                    yield f"data: {chunk.content}\n\n"
+                elif isinstance(chunk, str):
+                    yield f"data: {chunk}\n\n"
 
         except Exception as e:
             logger.error(f"Error generating response from LLM: {e}")
