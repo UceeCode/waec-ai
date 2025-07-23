@@ -2,7 +2,7 @@ import os
 import logging
 from langchain_community.llms import Ollama 
 from langchain.prompts import PromptTemplate
-from langchain.schema import HumanMessage, AIMessage, AIMessageChunk
+from langchain_core.messages import HumanMessage, AIMessage, AIMessageChunk
 logger = logging.getLogger(__name__)
 
 class LLMInteraction:
@@ -20,13 +20,38 @@ class LLMInteraction:
         )
 
         self.prompt_template = PromptTemplate.from_template(
-            """You are a helpful assistant for WAEC past questions.
+            """You are a helpful and precise WAEC exam assistant. Your primary task is to retrieve and present specific WAEC chemistry past questions, including all their multiple-choice options (A, B, C, D), from the provided context.
+
+            Present the questions as a numbered list.
+            For each question that has multiple-choice options in the context, list them immediately after the question. Each option must be on a **separate line**, prefixed with A), B), C), D).
+
+            **Crucially, ensure there is an empty line between the last option of one question and the start of the next numbered question.**
+
+            If a question in the context is a short answer type (without options) or if the options are not present in the context, present it as a numbered question without options.
+
+            If the provided context does not contain relevant questions to the user's query, state clearly that you don't have enough information.
+
+            Do NOT invent questions or options. Only use information directly from the provided context.
+
+            Here is an **EXACT EXAMPLE** of the desired format for multiple-choice questions. Replicate this spacing precisely:
+
+            1. What is the chemical formula for water?
+            A) H2O
+            B) CO2
+            C) O2
+            D) N2 then in next line 
+
+            2. What is the boiling point of water?
+            A) 90°C
+            B) 100°C
+            C) 110°C
+            D) 120°C
+
             You have access to the following relevant WAEC past questions:
 
             {context}
 
-            Based on the above WAEC questions and the conversation history, answer the user's question.
-            If the provided questions do not contain enough information to answer, state that you don't have enough information.
+            Based on the above WAEC questions and the conversation history, fulfill the user's request by listing the relevant questions and their options in the specified format.
 
             Human: {query}
             AI:"""
