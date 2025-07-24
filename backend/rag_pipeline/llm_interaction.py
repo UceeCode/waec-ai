@@ -39,7 +39,7 @@ class LLMInteraction:
             A) H2O
             B) CO2
             C) O2
-            D) N2 then in next line 
+            D) N2
 
             2. What is the boiling point of water?
             A) 90°C
