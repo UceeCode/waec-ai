@@ -1,0 +1,111 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: #f0f2f5;
+  }
+  
+  .header {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .chatBox {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+  }
+  
+  .emptyState {
+    text-align: center;
+    color: #888;
+    padding: 50px;
+    font-style: italic;
+  }
+  
+  .message {
+    display: flex;
+    margin-bottom: 15px;
+  }
+  
+  .userMessage {
+    justify-content: flex-end;
+  }
+  
+  .assistantMessage {
+    justify-content: flex-start;
+  }
+  
+  .messageContent {
+    padding: 12px 18px;
+    border-radius: 20px;
+    max-width: 70%;
+    word-wrap: break-word;
+    line-height: 1.5;
+  }
+  
+  .userMessage .messageContent {
+    background-color: #007bff;
+    color: #fff;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .assistantMessage .messageContent {
+    background-color: #e5e5ea;
+    color: #333;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .inputForm {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+  }
+  
+  .inputField {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1rem;
+    margin-right: 10px;
+    outline: none;
+  }
+  
+  .inputField:focus {
+    border-color: #007bff;
+  }
+  
+  .sendButton {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .sendButton:hover {
+    background-color: #0056b3;
+  }
+  
+  .sendButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
