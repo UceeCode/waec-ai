@@ -19,7 +19,7 @@ RUN pip install --no-cache-dir \
     cryptography>=40.0.0 \
     google-generativeai
     
-    RUN pip install --no-cache-dir --extra-index-url https://download.pytorch.org/whl/cpu torch==2.3.0
+    RUN pip install --no-cache-dir --extra-index-url https://download.pytorch.org/whl/cpu torch==2.6.0
     RUN pip install --no-cache-dir faiss-cpu==1.8.0
     RUN pip install --no-cache-dir sentence-transformers==2.7.0
     

@@ -12,7 +12,7 @@ services:
     depends_on:
       - backend
     environment:
-      - NEXT_PUBLIC_API_URL=http://backend:8000
+      - NEXT_PUBLIC_API_URL=http://localhost:8000 
     networks:
       - waec_network
     
@@ -29,7 +29,7 @@ services:
       MONGO_URI: mongodb://mongodb:27017
       MONGO_DB_NAME: waec_questions_db
       OLLAMA_BASE_URL: http://ollama:11434
-      OLLAMA_MODEL: llama3.2:1b
+      OLLAMA_MODEL: qwen3:0.6b 
     depends_on:
       - mongodb
       # - mysql
