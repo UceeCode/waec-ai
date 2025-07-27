@@ -34,6 +34,7 @@ services:
       - mongodb
       # - mysql
       - ollama 
+      - ollama-setup
     networks:
       - waec_network
 
@@ -84,6 +85,26 @@ services:
       - ./data/ollama:/root/.ollama
     networks:
       - waec_network
+
+  ollama-setup:
+    image: curlimages/curl:latest
+    container_name: ollama_setup
+    command: >
+      sh -c "
+        echo 'Waiting for Ollama to be ready...' &&
+        until curl -s http://ollama:11434/api/tags > /dev/null; do
+          sleep 2
+        done &&
+        echo 'Ollama is ready. Pulling model: ${OLLAMA_MODEL}...' && # Use env var for model name
+        curl -X POST http://ollama:11434/api/pull -d '{\"name\": \"${OLLAMA_MODEL}\"}' && # Use env var
+        echo 'Model ${OLLAMA_MODEL} pulled successfully!'
+      "
+    environment: 
+      OLLAMA_MODEL: ${OLLAMA_MODEL}
+    depends_on:
+      - ollama 
+    networks:
+      - app_network
 
 volumes:
   mongo_data:
