@@ -33,19 +33,6 @@ class LLMInteraction:
 
             Do NOT invent questions or options. Only use information directly from the provided context.
 
-            Here is an **EXACT EXAMPLE** of the desired format for multiple-choice questions. Replicate this spacing precisely:
-
-            1. What is the chemical formula for water?
-            A) H2O
-            B) CO2
-            C) O2
-            D) N2
-
-            2. What is the boiling point of water?
-            A) 90°C
-            B) 100°C
-            C) 110°C
-            D) 120°C
 
             You have access to the following relevant WAEC past questions:
 
