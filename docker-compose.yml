@@ -95,16 +95,14 @@ services:
         until curl -s http://ollama:11434/api/tags > /dev/null; do
           sleep 2
         done &&
-        echo 'Ollama is ready. Pulling model: ${OLLAMA_MODEL}...' && # Use env var for model name
-        curl -X POST http://ollama:11434/api/pull -d '{\"name\": \"${OLLAMA_MODEL}\"}' && # Use env var
-        echo 'Model ${OLLAMA_MODEL} pulled successfully!'
+        echo 'Ollama is ready. Pulling model: qwen3:0.6b...' &&
+        curl -X POST http://ollama:11434/api/pull -d '{\"name\": \"qwen3:0.6b\"}' &&
+        echo 'Model qwen3:0.6b pulled successfully!'
       "
-    environment: 
-      OLLAMA_MODEL: ${OLLAMA_MODEL}
     depends_on:
       - ollama 
     networks:
-      - app_network
+      - waec_network
 
 volumes:
   mongo_data:
